@@ -17,7 +17,10 @@ start(_Type, _Args) ->
             {"/next_prime", next_prime_handler, []},
             {"/factor", factor_handler, []},
             {"/sinus", sinus_handler, []},
-            {"/cosinus", cosinus_handler, []}
+            {"/cosinus", cosinus_handler, []},
+            {"/tangens", tangens_handler, []},
+            {"/cotangens", cotangens_handler, []}
+
         ]}
     ]),
     {ok, _} = cowboy:start_clear(my_http_listener,

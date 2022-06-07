@@ -4,16 +4,22 @@
 -export([start/2]).
 -export([stop/1]).
 
+
 start(_Type, _Args) ->
     Dispatch = cowboy_router:compile([
         {'_', [
             {"/", hello_handler, []},
-            {"/test/version", version_handler, []},
-            {"/world", hello_world, []}
+            {"/substriction", sub_handler, []},
+            {"/addition", sum_handler, []}
+            % {"/multiplication", mull_handler, []},
+            % {"/division", div_handler, []},
+            % {"/sinus", sin_handler, []},
+            % {"/cosinus", cos_handler, []},
+            % {"/next_prime", next_prime_world, []}
         ]}
     ]),
     {ok, _} = cowboy:start_clear(my_http_listener,
-        [{port, 8080}],
+        [{port, 8081}],
         #{env => #{dispatch => Dispatch}}
     ),
     hello_erlang_sup:start_link().

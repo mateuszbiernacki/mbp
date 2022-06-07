@@ -15,10 +15,9 @@ start(_Type, _Args) ->
             {"/division", div_handler, []},
             {"/is_prime", is_prime_handler, []},
             {"/next_prime", next_prime_handler, []},
-            {"/factor", factor_handler, []}
-            % {"/sinus", sin_handler, []},
-            % {"/cosinus", cos_handler, []},
-            % {"/next_prime", next_prime_world, []}
+            {"/factor", factor_handler, []},
+            {"/sinus", sinus_handler, []},
+            {"/cosinus", cosinus_handler, []}
         ]}
     ]),
     {ok, _} = cowboy:start_clear(my_http_listener,

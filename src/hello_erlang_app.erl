@@ -8,6 +8,7 @@ start(_Type, _Args) ->
     Dispatch = cowboy_router:compile([
         {'_', [
             {"/", hello_handler, []},
+            {"/test/version", version_handler, []},
             {"/world", hello_world, []}
         ]}
     ]),

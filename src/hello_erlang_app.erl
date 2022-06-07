@@ -19,7 +19,8 @@ start(_Type, _Args) ->
             {"/sinus", sinus_handler, []},
             {"/cosinus", cosinus_handler, []},
             {"/tangens", tangens_handler, []},
-            {"/cotangens", cotangens_handler, []}
+            {"/cotangens", cotangens_handler, []},
+            {"/sqrt", sqrt_handler, []}
 
         ]}
     ]),

@@ -22,7 +22,9 @@ start(_Type, _Args) ->
             {"/cotangens", cotangens_handler, []},
             {"/sqrt", sqrt_handler, []},
             {"/pow", pow_handler, []},
-            {"/fib", fib_handler, []}
+            {"/fib", fib_handler, []},
+            {"/ln", ln_handler, []},
+            {"/log", log_handler, []}
 
         ]}
     ]),

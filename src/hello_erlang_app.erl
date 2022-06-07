@@ -12,7 +12,8 @@ start(_Type, _Args) ->
             {"/substriction", sub_handler, []},
             {"/addition", sum_handler, []},
             {"/multiplication", mul_handler, []},
-            {"/division", div_handler, []}
+            {"/division", div_handler, []},
+            {"/is_prime", is_prime_handler, []}
             % {"/sinus", sin_handler, []},
             % {"/cosinus", cos_handler, []},
             % {"/next_prime", next_prime_world, []}

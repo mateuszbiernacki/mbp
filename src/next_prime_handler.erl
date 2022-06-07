@@ -1,7 +1,7 @@
 %% Feel free to use, reuse and abuse the code in this file.
 
 %% @doc Hello world handler.
--module(is_prime_handler).
+-module(next_prime_handler).
 
 -export([init/2]).
 -export([content_types_provided/2]).
@@ -20,7 +20,7 @@ ret(Req, State) ->
 	Map = jiffy:decode(Data, [return_maps]),
 	[H | _] = maps:values(Map),
 	
-	Body = jiffy:encode(isprime(H)),
+	Body = jiffy:encode(nextprime(H)),
 	{Body, Req, State}.
 
 
@@ -36,4 +36,11 @@ isprime(A, I) ->
     if 
         Buff == 0 -> false;
         true -> isprime(A, I-1)
+    end.
+
+nextprime(A) ->
+    Buff = isprime(A),
+    if
+        Buff -> A;
+        true -> nextprime(A+1)
     end.

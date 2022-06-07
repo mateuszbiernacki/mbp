@@ -1,7 +1,7 @@
 %% Feel free to use, reuse and abuse the code in this file.
 
 %% @doc Hello world handler.
--module(is_prime_handler).
+-module(factor_handler).
 
 -export([init/2]).
 -export([content_types_provided/2]).
@@ -19,21 +19,13 @@ ret(Req, State) ->
 	{ok, Data, _} = cowboy_req:read_body(Req),
 	Map = jiffy:decode(Data, [return_maps]),
 	[H | _] = maps:values(Map),
-	
-	Body = jiffy:encode(isprime(H)),
+	Body = jiffy:encode(factor(H)),
 	{Body, Req, State}.
 
 
-isprime(A) -> 
-	if
-		A > 1 -> isprime(A, A div 2);
-		true -> false
-	end.
-
-isprime(_, 1) -> true;
-isprime(A, I) ->
-    Buff = A rem I,
-    if 
-        Buff == 0 -> false;
-        true -> isprime(A, I-1)
-    end.
+factor(A) ->
+    factor(A, 1).
+    
+factor(1, B) -> B;
+factor(A, B) ->
+    factor(A-1, B*A).
